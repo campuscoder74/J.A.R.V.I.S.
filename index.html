@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+   <html lang="en" dir="ltr">
+   <head>
+     <meta charset="utf-8">
+     <title>Weby_byte</title>
+     <link rel="stylesheet" href="styles.css">
+   </head>
+   <body>
+     <table cellspacing="20">
+       <tr>
+         <td><img src="images/Webit.png" alt="Webit Profile Picture" width="150" height="150"></td>
+         <td>
+           <h1 id="Webit">Webit</h1>
+           <p><em>Founder of <strong><a href="https://youtube.com/@Weby_byte">Weby_byte</a></strong></em></p>
+           <p>I am a Programmer and a Web Developer. I Love ❤️ Coding and Programming.</p>
+         </td>
+       </tr>
+     </table>
+     <hr size="2" noshade>
+   
+     <h2 id="Code">Code</h2>
+     <div class="code-container">
+       <p class="code-title">Import:</p>
+       <pre class="codetext">
+   import pyttsx3
+   import speech_recognition as sr
+       </pre>
+     </div>
+   
+     <div class="code-container">
+       <p class="code-title">Speak Function:</p>
+       <pre class="codetext">
+   engine = pyttsx3.init('sapi5')
+   voices = engine.getProperty('voices')
+   engine.setProperty('voice', voices[0].id)
+   rate = engine.setProperty("rate",185)
+   
+   def Speak(audio):
+     engine.say(audio)
+     engine.runAndWait()
+       </pre>
+     </div>
+   
+     <div class="code-container">
+       <p class="code-title">Take Command Function:</p>
+       <pre class="codetext">
+   def TakeCommand():
+   
+     r = sr.Recognizer()
+     with sr.Microphone() as source:
+         print("Listening...")
+         r.pause_threshold = 1
+         audio = r.listen(source,0,4)
+   
+     try:
+         print("Understanding...")
+         query = r.recognize_google(audio, language='en-in')
+         print(f"Master said: {query}\n")
+     except Exception as e:
+         print("Say that again please...")
+         return "None"
+     return query
+       </pre>
+     </div>
+     <div class="code-container">
+       <pre class="codetext">
+  if __name__ == "__main__": 
+      while True:
+          query = TakeCommand().lower()
+       </pre>
+     </div>
+   </body>
+   </html>
+   
+  </head>
