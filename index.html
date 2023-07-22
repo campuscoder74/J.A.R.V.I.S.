@@ -21,16 +21,15 @@
      <h2 id="Code">Code</h2>
      <div class="code-container">
        <p class="code-title">Import:</p>
-       <pre class="codetext"><h4>
+       <pre class="codetext">
    import pyttsx3
-   import speech_recognition as sr</h4>
+   import speech_recognition as sr
        </pre>
      </div>
    
      <div class="code-container">
        <p class="code-title">Speak Function:</p>
        <pre class="codetext">
-   <h4>
    engine = pyttsx3.init('sapi5')
    voices = engine.getProperty('voices')
    engine.setProperty('voice', voices[0].id)
@@ -38,14 +37,14 @@
    
    def Speak(audio):
      engine.say(audio)
-     engine.runAndWait()</h4>
+     engine.runAndWait()
        </pre>
      </div>
    
      <div class="code-container">
        <p class="code-title">Take Command Function:</p>
        <pre class="codetext">
-   <h4>def TakeCommand():
+   def TakeCommand():
    
      r = sr.Recognizer()
      with sr.Microphone() as source:
@@ -60,15 +59,15 @@
      except Exception as e:
          print("Say that again please...")
          return "None"
-     return query</h4>
+     return query
        </pre>
      </div>
      <div class="code-container">
-       <pre class="codetext"><h4>
+       <pre class="codetext">
   if __name__ == "__main__": 
       while True:
           query = TakeCommand().lower()
-          </h4>
+          
        </pre>
      </div>
    </body>
