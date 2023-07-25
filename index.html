@@ -22,7 +22,6 @@
      <div class="code-container">
        <p class="code-title">Import:</p>
        <pre class="codetext">
-   # IMPORT LIBRARIES USING "pip install _____"
    import pyttsx3
    import speech_recognition as sr
        </pre>
@@ -31,7 +30,7 @@
      <div class="code-container">
        <p class="code-title">Speak Function:</p>
        <pre class="codetext">
-   # Text to Speech Function.
+   
    engine = pyttsx3.init('sapi5')
    voices = engine.getProperty('voices')
    engine.setProperty('voice', voices[0].id)
@@ -72,6 +71,54 @@
           
        </pre>
      </div>
+     <div class="code-container">
+      <p class="code-title">Greet Me Function:</p>
+      <pre class="codetext">
+  
+    import pyttsx3
+    import datetime
+    
+    # Text to Speech engine.
+    engine = pyttsx3.init('sapi5')
+    voices = engine.getProperty('voices')
+    engine.setProperty('voice', voices[0].id)
+    rate = engine.setProperty("rate",185)
+    
+    def Speak(audio):
+        engine.say(audio)
+        engine.runAndWait()
+    
+    # Greet when the program started.
+    def greetme():
+        hour = int(datetime.datetime.now().hour)
+        if hour >=0 and hour<=12:
+            Speak("Good Morning, Sir!")
+        elif hour >=12 and hour<=18:
+            Speak("Good Afternoon, Sir!")
+        else:
+            Speak("Good Evening, Sir")
+    
+        Speak("I am Jarvis. How can I help you Sir!")
+    
+      </pre>
+    </div>
+    <div class="code-container">
+      <p class="code-title">Hotward Function:</p>
+      <pre class="codetext">
+    if "wake up" in query:
+    from Greetme import greetme
+    greetme()
+
+    while True:
+        query = TakeCommand().lower()
+
+        if "go to sleep" in query:
+            Speak("Ok Sir, you can call me anytime")
+            break
+      </pre>
+    </div>
+  
+  
    </body>
    </html>
    
