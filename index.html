@@ -117,6 +117,28 @@
             break
       </pre>
     </div>
+    <div class="code-container">
+      <p class="code-title">Time Function:</p>
+      <pre class="codetext">
+        elif 'time' in query:
+        strTime = datetime.datetime.now().strftime("%H:%M:%S")    
+        print(f"Sir, the time is {strTime}") 
+        Speak(f"Sir, the time is {strTime}")
+      </pre>
+    </div>
+    <div class="code-container">
+      <p class="code-title">internet speeed:</p>
+      <pre class="codetext">
+        elif "internet speed" in query:
+        wifi  = speedtest.Speedtest()
+        upload_net = wifi.upload()/1048576         #Megabyte = 1024*1024 Bytes
+        download_net = wifi.download()/1048576
+        print("Wifi Upload Speed is", upload_net)
+        print("Wifi download speed is ",download_net)
+        Speak(f"Wifi download speed is {download_net}")
+        Speak(f"Wifi Upload speed is {upload_net}")
+      </pre>
+    </div>
   
   
    </body>
