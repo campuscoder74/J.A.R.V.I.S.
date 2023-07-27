@@ -139,6 +139,64 @@
         Speak(f"Wifi Upload speed is {upload_net}")
       </pre>
     </div>
+    <div class="code-container">
+      <p class="code-title">Calculate Numbers:</p>
+      <pre class="codetext">
+        elif "calculate" in query:
+            from Calculatenumbers import WolfRamAlpha
+            from Calculatenumbers import Calculate
+            query = query.replace("calculate","")
+            query = query.replace("jarvis","")
+            Calculate(query)
+      </pre>
+    </div>
+    <div class="code-container">
+      <p class="code-title">Calculatenumbers.py:</p>
+      <pre class="codetext">
+      import pyttsx3
+      import wolframalpha
+            
+      # Text to Speech engine.
+      engine = pyttsx3.init('sapi5')
+      voices = engine.getProperty('voices')
+      engine.setProperty('voice', voices[0].id)
+      rate = engine.setProperty("rate",185)
+            
+      def Speak(audio):
+          engine.say(audio)
+          engine.runAndWait()
+            
+      def WolfRamAlpha(query):
+          apikey = "WGKT3V-R88U56Q4T6"
+          requester = wolframalpha.Client(apikey)
+          requested = requester.query(query)
+            
+          try:
+              answer = next(requested.results).text
+              return answer
+          except:
+              Speak("The value is not answerable")
+            
+      def Calculate(query):
+          Term = str(query)
+          Term = Term.replace("jarvis","")
+          Term = Term.replace("multiply","*")
+          Term = Term.replace("plus","+")
+          Term = Term.replace("minus","-")
+          Term = Term.replace("divide","/")
+            
+          Final = str(Term)
+            
+          try:
+              result = WolfRamAlpha(Final)
+              print(f"{result}")
+              Speak(result)
+            
+          except:
+              Speak("The value is not answerable")
+            
+      </pre>
+    </div>
   
   
    </body>
