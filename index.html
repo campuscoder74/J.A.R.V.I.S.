@@ -167,8 +167,7 @@
           engine.runAndWait()
             
       def WolfRamAlpha(query):
-          # Enter your api key here
-          apikey = "YOUR_API_KEY"
+          apikey = "WGKT3V-R88U56Q4T6"
           requester = wolframalpha.Client(apikey)
           requested = requester.query(query)
             
@@ -195,6 +194,91 @@
             
           except:
               Speak("The value is not answerable")
+            
+      </pre>
+    </div>
+    <div class="code-container">
+      <p class="code-title">Email Function:</p>
+      <pre class="codetext">
+        elif "write an email" in query:
+        print("To whom do you wnat to send the email")
+        Speak("To whom do you wnat to send the email")
+
+        recipient_name = TakeCommand().lower()
+        from sendemail import recipient_mapping
+        recipient_email = recipient_mapping.get(recipient_name)
+
+        if recipient_email:
+            print("what the subject of the email?")
+            Speak("what the subject of the email?")
+
+            subject = TakeCommand().lower()
+            from sendemail import send_email
+            from sendemail import sender_email
+            from sendemail import sender_password
+
+            print("what is the message of the email")
+            Speak("what is the message of the email")
+            content = TakeCommand().lower()
+
+            send_email(sender_email, sender_password, recipient_email, subject, content)
+
+        else:
+            print('Sorry! I am not able to find your address details')
+            Speak('Sorry! I am not able to find your address details.')
+            
+      </pre>
+    </div>
+    <div class="code-container">
+      <p class="code-title">sendemail.py:</p>
+      <pre class="codetext">
+        import pyttsx3
+        import smtplib
+        
+        engine = pyttsx3.init('sapi5')
+        voices = engine.getProperty('voices')
+        engine.setProperty('voice', voices[0].id)
+        rate = engine.setProperty("rate",185)
+        
+        def Speak(audio):
+            engine.say(audio)
+            engine.runAndWait()
+        
+        def send_email(sender_email, sender_password, recipient_email, subject, content):
+            from email.message import EmailMessage
+            msg = EmailMessage()
+            msg['From'] = sender_email
+            msg['To'] = recipient_email
+            msg['Subject'] = subject
+            msg.set_content(content)
+        
+            with smtplib.SMTP('smtp.gmail.com', 587) as server:
+                server.starttls()
+                server.login(sender_email, sender_password)
+                server.send_message(msg)
+        
+            print("Email sent successfully.")
+            Speak("Email sent successfully.")
+        
+        # ~Using Dictionary to map recipient names and their email ids.
+        
+        recipient_mapping = {
+          "name" : "email id",
+            # *Add more recipient mappings as needed.
+        }
+        
+        # You can use Google 'less secure apps' for app password.
+        
+
+        # Dont share it with anyone.
+        sender_email = "YOuR_EMAIL_ID
+        sender_password = "YOUR_PASSWORD"
+        
+        
+        
+        
+        
+        
             
       </pre>
     </div>
