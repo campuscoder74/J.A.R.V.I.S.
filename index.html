@@ -232,54 +232,24 @@
     <div class="code-container">
       <p class="code-title">sendemail.py:</p>
       <pre class="codetext">
-        import pyttsx3
-        import smtplib
-        
-        engine = pyttsx3.init('sapi5')
-        voices = engine.getProperty('voices')
-        engine.setProperty('voice', voices[0].id)
-        rate = engine.setProperty("rate",185)
-        
-        def Speak(audio):
-            engine.say(audio)
-            engine.runAndWait()
-        
-        def send_email(sender_email, sender_password, recipient_email, subject, content):
-            from email.message import EmailMessage
-            msg = EmailMessage()
-            msg['From'] = sender_email
-            msg['To'] = recipient_email
-            msg['Subject'] = subject
-            msg.set_content(content)
-        
-            with smtplib.SMTP('smtp.gmail.com', 587) as server:
-                server.starttls()
-                server.login(sender_email, sender_password)
-                server.send_message(msg)
-        
-            print("Email sent successfully.")
-            Speak("Email sent successfully.")
-        
-        # ~Using Dictionary to map recipient names and their email ids.
-        
-        recipient_mapping = {
-          "name" : "email id",
-            # *Add more recipient mappings as needed.
-        }
-        
-        # You can use Google 'less secure apps' for app password.
-        
 
-        # Dont share it with anyone.
-        sender_email = "YOuR_EMAIL_ID
-        sender_password = "YOUR_PASSWORD"
-        
-        
-        
-        
-        
-        
-            
+        elif "ip address" in query:
+        ip = get('https://api.ipify.org').text
+        print(f"Your ip address is {ip}")
+        Speak(f"Your ip address is {ip}")
+      </pre>
+    </div>
+    <div class="code-container">
+      <p class="code-title">IP address:</p>
+      <pre class="codetext">
+        elif "temperature" in query:
+        search = "temperature in rajasthan"
+        url = f"https://www.google.com/search?q={search}" 
+        r = requests.get(url)
+        data = BeautifulSoup(r.text,"html.parser")
+        temp = data.find("div", class_ = "BNeawe").text
+        Speak(f"current{search} is {temp}")
+
       </pre>
     </div>
   
