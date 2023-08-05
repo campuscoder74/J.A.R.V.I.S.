@@ -8,10 +8,10 @@
    <body>
      <table cellspacing="20">
        <tr>
-         <td><img src="images/Webit.png" alt="Webit Profile Picture" width="150" height="150"></td>
+         <td><img src="images/logo.png" alt="Webit Profile Picture" width="150" height="150"></td>
          <td>
-           <h1 id="Webit">Webit</h1>
-           <p><em>Founder of <strong><a href="https://youtube.com/@Weby_byte">Weby_byte</a></strong></em></p>
+           <h1 id="Webit">DinoCoder</h1>
+           <p><em>Founder of <strong><a href="https://youtube.com/@Weby_byte">DinoCoder</a></strong></em></p>
            <p>I am a Programmer and a Web Developer. I Love ❤️ Coding and Programming.</p>
          </td>
        </tr>
@@ -25,6 +25,7 @@
    import pyttsx3
    import speech_recognition as sr
        </pre>
+       <button class="copy-button">Copy</button>
      </div>
    
      <div class="code-container">
@@ -40,6 +41,7 @@
      engine.say(audio)
      engine.runAndWait()
        </pre>
+       <button class="copy-button">Copy</button>
      </div>
    
      <div class="code-container">
@@ -62,6 +64,7 @@
          return "None"
      return query
        </pre>
+       <button class="copy-button">Copy</button>
      </div>
      <div class="code-container">
        <pre class="codetext">
@@ -70,6 +73,7 @@
           query = TakeCommand().lower()
           
        </pre>
+       <button class="copy-button">Copy</button>
      </div>
      <div class="code-container">
       <p class="code-title">Greet Me Function:</p>
@@ -101,6 +105,7 @@
         Speak("I am Jarvis. How can I help you Sir!")
     
       </pre>
+      <button class="copy-button">Copy</button>
     </div>
     <div class="code-container">
       <p class="code-title">Hotward Function:</p>
@@ -116,6 +121,7 @@
             Speak("Ok Sir, you can call me anytime")
             break
       </pre>
+      <button class="copy-button">Copy</button>
     </div>
     <div class="code-container">
       <p class="code-title">Time Function:</p>
@@ -125,6 +131,7 @@
         print(f"Sir, the time is {strTime}") 
         Speak(f"Sir, the time is {strTime}")
       </pre>
+      <button class="copy-button">Copy</button>
     </div>
     <div class="code-container">
       <p class="code-title">internet speeed:</p>
@@ -138,6 +145,7 @@
         Speak(f"Wifi download speed is {download_net}")
         Speak(f"Wifi Upload speed is {upload_net}")
       </pre>
+      <button class="copy-button">Copy</button>
     </div>
     <div class="code-container">
       <p class="code-title">Calculate Numbers:</p>
@@ -149,6 +157,7 @@
             query = query.replace("jarvis","")
             Calculate(query)
       </pre>
+      <button class="copy-button">Copy</button>
     </div>
     <div class="code-container">
       <p class="code-title">Calculatenumbers.py:</p>
@@ -196,6 +205,7 @@
               Speak("The value is not answerable")
             
       </pre>
+      <button class="copy-button">Copy</button>
     </div>
     <div class="code-container">
       <p class="code-title">Email Function:</p>
@@ -228,6 +238,7 @@
             Speak('Sorry! I am not able to find your address details.')
             
       </pre>
+      <button class="copy-button">Copy</button>
     </div>
     <div class="code-container">
       <p class="code-title">sendemail.py:</p>
@@ -274,6 +285,7 @@
         sender_password = "YOUR_APP_PASSWORD"
         
       </pre>
+      <button class="copy-button">Copy</button>
     </div>
     <div class="code-container">
       <p class="code-title">IP address:</p>
@@ -284,6 +296,7 @@
         print(f"Your ip address is {ip}")
         Speak(f"Your ip address is {ip}")
       </pre>
+      <button class="copy-button">Copy</button>
     </div>
     <div class="code-container">
       <p class="code-title">Temperature:</p>
@@ -297,9 +310,33 @@
         Speak(f"current{search} is {temp}")
 
       </pre>
+      <button class="copy-button">Copy</button>
     </div>
   
-  
+      <script>
+      const copyButtons = document.querySelectorAll(".copy-button");
+      copyButtons.forEach(button => {
+          button.addEventListener("click", function() {
+              const codeSnippet = this.parentNode.querySelector(".codetext");
+              const codeText = codeSnippet.textContent;
+
+              const textarea = document.createElement("textarea");
+              textarea.value = codeText;
+              document.body.appendChild(textarea);
+              textarea.select();
+              document.execCommand("copy");
+              document.body.removeChild(textarea);
+
+              // Update button text to "Copied"
+              this.textContent = "Copied";
+
+              // Reset button text after a few seconds
+              setTimeout(() => {
+                  this.textContent = "Copy";
+              }, 10000); // Reset after 10 seconds
+          });
+      });
+    </script>
    </body>
    </html>
    
