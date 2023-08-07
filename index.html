@@ -292,9 +292,9 @@
       <pre class="codetext">
 
         elif "ip address" in query:
-        ip = get('https://api.ipify.org').text
-        print(f"Your ip address is {ip}")
-        Speak(f"Your ip address is {ip}")
+            ip = get('https://api.ipify.org').text
+            print(f"Your ip address is {ip}")
+            Speak(f"Your ip address is {ip}")
       </pre>
       <button class="copy-button">Copy</button>
     </div>
@@ -302,12 +302,12 @@
       <p class="code-title">Temperature:</p>
       <pre class="codetext">
         elif "temperature" in query:
-        search = "temperature in rajasthan"
-        url = f"https://www.google.com/search?q={search}" 
-        r = requests.get(url)
-        data = BeautifulSoup(r.text,"html.parser")
-        temp = data.find("div", class_ = "BNeawe").text
-        Speak(f"current{search} is {temp}")
+            search = "temperature in rajasthan"
+            url = f"https://www.google.com/search?q={search}" 
+            r = requests.get(url)
+            data = BeautifulSoup(r.text,"html.parser")
+            temp = data.find("div", class_ = "BNeawe").text
+            Speak(f"current{search} is {temp}")
 
       </pre>
       <button class="copy-button">Copy</button>
@@ -326,9 +326,9 @@
     <div class="code-container">
       <p class="code-title">open website:</p>
       <pre class="codetext">
-          elif 'amazon' in query:
+        elif 'amazon' in query:
               webbrowser.get('chrome').open("amazon.in")
-          elif "speed test" in query:
+        elif "speed test" in query:
               webbrowser.get('chrome').open("fast.com")
       </pre>
       <button class="copy-button">Copy</button>
