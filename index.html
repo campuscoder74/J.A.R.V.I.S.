@@ -312,6 +312,27 @@
       </pre>
       <button class="copy-button">Copy</button>
     </div>
+    <div class="code-container">
+      <p class="code-title">open URL:</p>
+      <pre class="codetext">
+        elif "our channel" in query:
+            url = "https://youtube.com/@DinoCoder"
+            Speak("Channel opening...")
+            webbrowser.get('chrome').open(url)
+            print("channel opening...")
+      </pre>
+      <button class="copy-button">Copy</button>
+    </div>
+    <div class="code-container">
+      <p class="code-title">open website:</p>
+      <pre class="codetext">
+          elif 'amazon' in query:
+              webbrowser.get('chrome').open("amazon.in")
+          elif "speed test" in query:
+              webbrowser.get('chrome').open("fast.com")
+      </pre>
+      <button class="copy-button">Copy</button>
+    </div>
   
       <script>
       const copyButtons = document.querySelectorAll(".copy-button");
